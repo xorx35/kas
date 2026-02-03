@@ -14,6 +14,6 @@ export async function GET() {
     )
   }
 
-  // PASTIKAN selalu array
+  // pastikan selalu array
   return Response.json(Array.isArray(data) ? data : [])
 }
