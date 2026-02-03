@@ -7,8 +7,13 @@ export async function GET() {
     .order('nama')
 
   if (error) {
-    return Response.json({ error: error.message }, { status: 500 })
+    console.error('API /kas error:', error)
+    return Response.json(
+      { error: error.message },
+      { status: 500 }
+    )
   }
 
-  return Response.json(data)
+  // PASTIKAN selalu array
+  return Response.json(Array.isArray(data) ? data : [])
 }
